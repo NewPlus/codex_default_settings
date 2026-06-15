@@ -1,5 +1,9 @@
 # Codex 기본 세팅 프로젝트
 
+[![CI](https://github.com/NewPlus/codex_default_settings/actions/workflows/ci.yml/badge.svg)](https://github.com/NewPlus/codex_default_settings/actions/workflows/ci.yml)
+![Version](https://img.shields.io/badge/version-0.1.0-blue)
+![Visibility](https://img.shields.io/badge/repo-public-brightgreen)
+
 이 폴더는 새 프로젝트를 시작할 때 적용할 Codex 기본 지침을 보관하는 장소다.
 
 ## 적용된 방식
@@ -31,3 +35,19 @@ cp /Users/yonghwanlee/Desktop/dev/codex_default_settings/AGENTS.md /path/to/new-
 - `AGENTS.md`: Codex가 실제로 읽는 프로젝트 지침.
 - `.codex/config.toml`: 이 기본 세팅 프로젝트에서 사용할 Codex 프로젝트 설정.
 - `scripts/apply-to-project.sh`: 다른 프로젝트에 `AGENTS.md`를 복사하는 보조 스크립트.
+- `.github/workflows/ci.yml`: 푸시와 PR마다 실행되는 기본 CI 검증.
+- `.agents/skills/fable-mode`: Fable 스타일 응답 모드를 적용하는 Codex 스킬.
+- `prompts/fable-mode.md`: `/prompts:fable-mode`로 호출할 수 있는 로컬 Codex 프롬프트 템플릿.
+- `VERSION`: 현재 설정 프로젝트 버전.
+
+## Fable Mode 사용법
+
+Codex의 문서상 스킬은 `$fable-mode` 또는 `/skills`에서 선택해 사용할 수 있다. 슬래시 명령 형태로 쓰고 싶다면 로컬 Codex 프롬프트 `/prompts:fable-mode`를 사용한다.
+
+`/fable-mode`라는 표현으로 요청해도 이 저장소의 스킬 설명이 해당 요청을 인식하도록 설정되어 있다. 다만 Codex의 공식 custom prompt 호출 형식은 `/prompts:fable-mode`다.
+
+로컬 Codex 프롬프트를 설치하려면 아래 명령을 실행한다.
+
+```bash
+./scripts/install-local-prompts.sh
+```

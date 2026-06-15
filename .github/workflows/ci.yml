@@ -1,0 +1,45 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - "**"
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate:
+    name: 기본 설정 검증
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 저장소 체크아웃
+        uses: actions/checkout@v4
+
+      - name: 필수 파일 확인
+        run: |
+          test -f AGENTS.md
+          test -f README.md
+          test -f VERSION
+          test -f .codex/config.toml
+          test -f scripts/apply-to-project.sh
+          test -f scripts/install-local-prompts.sh
+          test -f prompts/fable-mode.md
+          test -f .agents/skills/fable-mode/SKILL.md
+          test -f .agents/skills/fable-mode/references/CLAUDE-FABLE-5.md
+
+      - name: 셸 스크립트 문법 검사
+        run: |
+          bash -n scripts/apply-to-project.sh
+          bash -n scripts/install-local-prompts.sh
+
+      - name: 버전 형식 검사
+        run: |
+          VERSION_VALUE="$(tr -d '[:space:]' < VERSION)"
+          echo "$VERSION_VALUE" | grep -Eq '^[0-9]+\.[0-9]+\.[0-9]+$'
+
+      - name: README 뱃지 확인
+        run: |
+          grep -q "version-" README.md
+          grep -q "actions/workflows/ci.yml/badge.svg" README.md
