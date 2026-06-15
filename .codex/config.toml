@@ -1,0 +1,3 @@
+# 이 파일은 codex_default_settings 프로젝트 안에서만 적용되는 Codex 설정이다.
+# 실제 개발 규칙은 프로젝트 루트의 AGENTS.md가 담당한다.
+project_doc_max_bytes = 65536
