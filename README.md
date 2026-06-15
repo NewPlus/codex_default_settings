@@ -1,7 +1,7 @@
 # Codex 기본 세팅 프로젝트
 
 [![CI](https://github.com/NewPlus/codex_default_settings/actions/workflows/ci.yml/badge.svg)](https://github.com/NewPlus/codex_default_settings/actions/workflows/ci.yml)
-![Version](https://img.shields.io/badge/version-0.2.0-blue)
+![Version](https://img.shields.io/badge/version-0.2.1-blue)
 ![Visibility](https://img.shields.io/badge/repo-public-brightgreen)
 
 이 폴더는 새 프로젝트를 시작할 때 적용할 Codex 기본 지침을 보관하는 장소다.

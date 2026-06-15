@@ -6,7 +6,7 @@
 
 - `AGENTS.md`: Codex가 프로젝트 시작 시 읽는 기본 지침이다. 개발 루프, 브랜치 정책, 버전 정책, DDD 기본값, 테스트와 검증, GitHub Actions와 PR, 한국어 커뮤니케이션 규칙을 담고 있다.
 - `README.md`: 저장소의 목적, 사용법, 뱃지, 포함 파일, Fable Mode 사용법을 요약한다.
-- `VERSION`: 저장소의 현재 버전을 `*.*.*` 형식으로 기록한다. 현재 버전은 `0.2.0`이다.
+- `VERSION`: 저장소의 현재 버전을 `*.*.*` 형식으로 기록한다. 현재 버전은 `0.2.1`이다.
 
 ## Codex 설정
 
@@ -14,7 +14,7 @@
 
 ## GitHub Actions
 
-- `.github/workflows/ci.yml`: push와 pull request마다 실행되는 CI 워크플로다. 필수 파일 존재 여부, 셸 스크립트 문법, 버전 형식, README 뱃지, docs 문서 상태를 검증한다.
+- `.github/workflows/ci.yml`: push와 pull request마다 실행되는 CI 워크플로다. 필수 파일 존재 여부, 셸 스크립트 문법, 버전 형식, README 뱃지, docs 문서 상태를 검증한다. 저장소 체크아웃은 Node.js 24 런타임을 사용하는 `actions/checkout@v5`를 사용한다.
 
 ## Codex Skills
 
