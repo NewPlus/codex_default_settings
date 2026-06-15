@@ -25,14 +25,21 @@ jobs:
           test -f .codex/config.toml
           test -f scripts/apply-to-project.sh
           test -f scripts/install-local-prompts.sh
+          test -f scripts/validate-docs.sh
+          test -f docs/README.md
+          test -f docs/repository-overview.md
+          test -f docs/codex-research-notes.md
+          test -f docs/documentation-workflow.md
           test -f prompts/fable-mode.md
           test -f .agents/skills/fable-mode/SKILL.md
+          test -f .agents/skills/docs-maintainer/SKILL.md
           test -f .agents/skills/fable-mode/references/CLAUDE-FABLE-5.md
 
       - name: 셸 스크립트 문법 검사
         run: |
           bash -n scripts/apply-to-project.sh
           bash -n scripts/install-local-prompts.sh
+          bash -n scripts/validate-docs.sh
 
       - name: 버전 형식 검사
         run: |
@@ -43,3 +50,6 @@ jobs:
         run: |
           grep -q "version-" README.md
           grep -q "actions/workflows/ci.yml/badge.svg" README.md
+
+      - name: docs 검증
+        run: scripts/validate-docs.sh

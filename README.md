@@ -1,7 +1,7 @@
 # Codex 기본 세팅 프로젝트
 
 [![CI](https://github.com/NewPlus/codex_default_settings/actions/workflows/ci.yml/badge.svg)](https://github.com/NewPlus/codex_default_settings/actions/workflows/ci.yml)
-![Version](https://img.shields.io/badge/version-0.1.0-blue)
+![Version](https://img.shields.io/badge/version-0.2.0-blue)
 ![Visibility](https://img.shields.io/badge/repo-public-brightgreen)
 
 이 폴더는 새 프로젝트를 시작할 때 적용할 Codex 기본 지침을 보관하는 장소다.
@@ -37,8 +37,21 @@ cp /Users/yonghwanlee/Desktop/dev/codex_default_settings/AGENTS.md /path/to/new-
 - `scripts/apply-to-project.sh`: 다른 프로젝트에 `AGENTS.md`를 복사하는 보조 스크립트.
 - `.github/workflows/ci.yml`: 푸시와 PR마다 실행되는 기본 CI 검증.
 - `.agents/skills/fable-mode`: Fable 스타일 응답 모드를 적용하는 Codex 스킬.
+- `.agents/skills/docs-maintainer`: 변경 사항이 생길 때 `docs/`를 함께 갱신하도록 돕는 Codex 스킬.
+- `docs/`: 저장소 구조, 조사 결과, 문서 갱신 워크플로를 설명하는 한국어 문서.
 - `prompts/fable-mode.md`: `/prompts:fable-mode`로 호출할 수 있는 로컬 Codex 프롬프트 템플릿.
+- `scripts/validate-docs.sh`: docs 필수 문서와 README 버전 뱃지 일치를 검증하는 스크립트.
 - `VERSION`: 현재 설정 프로젝트 버전.
+
+## 문서 관리
+
+현재 저장소 구성과 운영 방식은 `docs/` 폴더에 한국어로 정리한다. 저장소 구조, 스크립트, GitHub Actions, Codex skill, 프롬프트, 버전 정책이 바뀌면 docs를 함께 갱신한다.
+
+문서 검증은 아래 명령으로 실행한다.
+
+```bash
+./scripts/validate-docs.sh
+```
 
 ## Fable Mode 사용법
 
